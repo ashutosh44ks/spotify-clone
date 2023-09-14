@@ -4,7 +4,7 @@ const TrackItemLoader = () => {
   return (
     <li className="track-item">
       <div className="left-side">
-        <div src="" alt="" className="skeleton" />
+        <div className="skeleton skeleton-text round" />
         <div>
           <h4 className="skeleton skeleton-text">{}</h4>
           <p className="skeleton skeleton-text"></p>

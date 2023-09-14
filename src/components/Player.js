@@ -68,15 +68,19 @@ const Player = ({ tracks, activeTrackId, setActiveTrackId, loading }) => {
           {tracks.find((t) => t.id === activeTrackId)?.artist}
         </p>
       </div>
-      <img
-        src={`${process.env.REACT_APP_BASE_API_URL}/assets/${
-          tracks.find((t) => t.id === activeTrackId)?.cover
-        }`}
-        alt="cover"
-        className={`h-[16rem] w-[16rem] lg:h-[18rem] lg:w-[18rem] 
-        max-h-[50vh]
-        ${loading ? "skeleton" : ""}`}
-      />
+      {loading ? (
+        <div className="h-[16rem] w-[16rem] lg:h-[18rem] lg:w-[18rem] skeleton skeleton-text" />
+      ) : (
+        <img
+          src={`${process.env.REACT_APP_BASE_API_URL}/assets/${
+            tracks.find((t) => t.id === activeTrackId)?.cover
+          }`}
+          alt="cover"
+          className="h-[16rem] w-[16rem] lg:h-[18rem] lg:w-[18rem] 
+        max-h-[50vh]"
+        />
+      )}
+
       <div className="pt-4 pb-6 lg:pt-6 lg:pb-8">
         <input
           className="w-full"
