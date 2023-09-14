@@ -69,19 +69,20 @@ const Player = ({ tracks, activeTrackId, setActiveTrackId, loading }) => {
         </p>
       </div>
       {loading ? (
-        <div className="h-[16rem] w-[16rem] lg:h-[18rem] lg:w-[18rem] skeleton skeleton-text" />
+        <div className="h-[18rem] aspect-square lg:h-[20rem] skeleton skeleton-text" />
       ) : (
-        <img
-          src={`${process.env.REACT_APP_BASE_API_URL}/assets/${
-            tracks.find((t) => t.id === activeTrackId)?.cover
-          }`}
-          alt="cover"
-          className="h-[16rem] w-[16rem] lg:h-[18rem] lg:w-[18rem] 
-        max-h-[50vh]"
-        />
+        <div
+          style={{
+            background: `url("${process.env.REACT_APP_BASE_API_URL}/assets/${
+              tracks.find((t) => t.id === activeTrackId)?.cover
+            }") center/cover`,
+            borderRadius: "0.5rem",
+          }}
+          className="h-[18rem] aspect-square lg:h-[20rem]"
+        ></div>
       )}
 
-      <div className="pt-4 pb-6 lg:pt-6 lg:pb-8">
+      <div className="pt-4 pb-5 lg:pt-6 lg:pb-7">
         <input
           className="w-full"
           type="range"
@@ -93,7 +94,7 @@ const Player = ({ tracks, activeTrackId, setActiveTrackId, loading }) => {
           }}
         />
       </div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-8">
         <div>
           <img src={playerOptIcon} alt="settings" />
         </div>
