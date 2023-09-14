@@ -79,7 +79,7 @@ function App() {
       style={{
         background: `linear-gradient(135deg, ${
           tracks.find((t) => t.id === activeTrackId)?.accent
-        }, #000000)`,
+        } 2.46%, #000000 99.84%), black`,
       }}
     >
       <Sidebar setShowListMobile={setShowListMobile} />
