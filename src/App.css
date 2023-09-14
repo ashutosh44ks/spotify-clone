@@ -1,38 +1,216 @@
-.App {
-  text-align: center;
+/* TrackList */
+.tabs .tab {
+  font-weight: 700;
+  opacity: 50%;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+.tabs .tab.active {
+  opacity: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-bar {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  position: relative;
+  opacity: 60%;
+}
+.search-bar svg {
+  position: absolute;
+  right: 1.75rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.search-bar input {
+  padding: 0.64rem 2.5rem 0.64rem 1rem;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: #303030;
+  width: 100%;
+  outline: none;
+}
+.search-bar input::placeholder {
+  color: white;
+  opacity: 60%;
+}
+
+.track-list {
+  overflow: auto;
+  height: calc(100vh - 12rem);
+}
+.track-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.25 ease-in-out;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.track-item.active {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.track-item .left-side {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.track-item .left-side img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 1.5rem;
+}
+.track-item .left-side div div {
+  opacity: 60%;
+}
+.track-item .right-side {
+  opacity: 60%;
+}
+.track-item h4,
+.track-item .right-side {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Player */
+.player {
+  color: white;
+}
+.player h1 {
+  font-size: 1.95rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+}
+.player p {
+  opacity: 60%;
+  line-height: 1.5rem;
+}
+.player img {
+  border-radius: 0.5rem;
+}
+
+.audio-player {
+  position: fixed;
+  top: -10rem;
+  left: -10rem;
+}
+input[type="range"] {
+  accent-color: white;
+}
+
+/* Loaders */
+.skeleton {
+  opacity: 0.7;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    background-color: hsl(200, 20%, 90%);
+  }
+}
+.skeleton-text {
+  width: 100%;
+  border-radius: 0.25rem;
+  margin: 0.25rem 0;
+  /* reduce 0.25rem from the target element */
+}
+.player h1.skeleton-text {
+  height: 2rem;
+}
+.player p.skeleton-text {
+  height: 1.25rem;
+}
+.track-item h4.skeleton-text {
+  height: 1.25rem;
+  width: 5rem;
+}
+.track-item h4.skeleton-text {
+  height: 1.25rem;
+  width: 5rem;
+}
+.track-item p.skeleton-text {
+  height: 0.75rem;
+  width: 8rem;
+}
+
+/* Media Queries */
+.show-track-list,
+.gradient-close {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .track-list-container {
+    position: absolute;
+    left: -50rem;
+    transition: all 0.25s ease-in-out;
+  }
+  .show-track-list {
+    display: inline-block;
+  }
+  .track-list-container.mobile-view {
+    position: absolute;
+    left: 0rem;
+    width: 65vw;
+    min-width: 18rem;
+    height: 100vh;
+    transition: all 0.25s ease-in-out;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    z-index: 101;
+  }
+  .gradient-close {
+    display: block;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  .sidebar {
+    flex-direction: row;
+    position: absolute;
+    width: 100vw;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    align-items: center;
+  }
+  .player {
+    margin-top: 5rem;
+    padding: 2rem 0;
+    width: 50vw;
+    justify-content: start;
+  }
+  .player img {
+    width: 100%;
+    height: 80%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .player {
+    width: 60vw;
+  }
+}
+@media screen and (max-width: 576px) {
+  .sidebar {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .player {
+    padding-left: 0;
+    padding-right: 0;
+    width: 80vw;
   }
 }
