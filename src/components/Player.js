@@ -69,7 +69,7 @@ const Player = ({ tracks, activeTrackId, setActiveTrackId, loading }) => {
         </p>
       </div>
       <img
-        src={`https://cms.samespace.com/assets/${
+        src={`${process.env.REACT_APP_BASE_API_URL}/assets/${
           tracks.find((t) => t.id === activeTrackId)?.cover
         }`}
         alt="cover"

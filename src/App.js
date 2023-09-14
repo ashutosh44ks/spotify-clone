@@ -27,7 +27,7 @@ function App() {
   const getTracks = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get("https://cms.samespace.com/items/songs");
+      const { data } = await axios.get(`${process.env.REACT_APP_BASE_API_URL}/items/songs`);
       const tracks = data.data.filter((track) => !track.url.includes("https-"));
       for (let i = 0; i < tracks.length; i++) {
         if (tracks[i].url.includes(" "))

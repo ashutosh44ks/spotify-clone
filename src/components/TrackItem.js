@@ -9,7 +9,7 @@ const TrackItem = ({ track, activeTrackId, setactiveTrackId }) => {
     >
       <div className="left-side">
         <img
-          src={`https://cms.samespace.com/assets/${track.cover}`}
+          src={`${process.env.REACT_APP_BASE_API_URL}/assets/${track.cover}`}
           alt="cover"
         />
         <div>

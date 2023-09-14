@@ -6,7 +6,7 @@ const TrackItemLoader = () => {
       <div className="left-side">
         <div src="" alt="" className="skeleton" />
         <div>
-          <h4 className="skeleton skeleton-text"></h4>
+          <h4 className="skeleton skeleton-text">{}</h4>
           <p className="skeleton skeleton-text"></p>
         </div>
       </div>
