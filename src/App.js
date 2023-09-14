@@ -96,7 +96,7 @@ function App() {
         loading={loading}
       />
       <Player
-        tracks={tracks}
+        tracks={tracksAPI}
         activeTrackId={activeTrackId}
         setActiveTrackId={setactiveTrackId}
         loading={loading}
