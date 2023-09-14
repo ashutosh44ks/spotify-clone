@@ -1,3 +1,18 @@
+# Spotify Clone (Single Page Application)
+
+## Deployed on Netlify
+https://tiny-figolla-ee2500.netlify.app/
+
+## Features -
+1. Search bar
+2. RESTful APIs
+3. Music Control
+4. Responsive Design
+
+## Tech Stack Used -
+React JS + Tailwind CSS
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
